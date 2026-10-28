@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { BarChart3, CircleDollarSign, FileText, LayoutDashboard, Moon, Plus, ReceiptText, Settings, Sun, WalletCards } from 'lucide-react';
+import { BarChart3, FileText, IndianRupee, LayoutDashboard, Moon, Plus, ReceiptText, Settings, Sun, WalletCards } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import MonthSelect from './MonthSelect';
 
@@ -28,9 +28,8 @@ export default function Layout({ children }) {
 
   return <div className="app-shell">
     <aside className="sidebar">
-      <div className="brand"><span className="brand-mark"><CircleDollarSign size={24} /></span><div><strong>Expense Tracker</strong><small>Personal finance</small></div></div>
+      <div className="brand"><span className="brand-mark"><IndianRupee size={22} strokeWidth={2.5} /></span><div><strong>Expense Tracker</strong><small>Personal finance</small></div></div>
       <nav className="side-nav" aria-label="Primary navigation">{nav.map(([to, label, Icon]) => <NavLink key={to} to={to} end={to === '/'}><Icon size={18} /><span>{label}</span></NavLink>)}</nav>
-      <div className="side-note"><strong>Your data stays here.</strong><span>Stored only in this browser using localStorage.</span></div>
       <NavLink className="settings-link" to="/settings"><Settings size={18} /> Settings</NavLink>
     </aside>
 

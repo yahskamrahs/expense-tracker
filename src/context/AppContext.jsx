@@ -18,17 +18,21 @@ export function AppProvider({ children }) {
   const [categories, setCategories] = useState(() => readJSON(STORAGE_KEYS.categories, defaultCategories));
   const [budgets, setBudgets] = useState(() => readJSON(STORAGE_KEYS.budgets, defaultBudgets));
   const [recurring, setRecurring] = useState(() => readJSON(STORAGE_KEYS.recurring, []));
-  const [settings, setSettings] = useState(() => ({ ...DEFAULT_SETTINGS, ...readJSON(STORAGE_KEYS.settings, {}) }));
+  const [settings, setSettings] = useState(() => {
+    const loaded = readJSON(STORAGE_KEYS.settings, {});
+    const currency = (!loaded.currency || loaded.currency === 'BDT') ? 'INR' : loaded.currency;
+    return { ...DEFAULT_SETTINGS, ...loaded, currency };
+  });
   const [selectedMonth, setSelectedMonth] = useState(currentMonthKey());
   const [transactionModal, setTransactionModal] = useState({ open: false, initialType: 'expense', editing: null });
   const [toasts, setToasts] = useState([]);
   const [confirmState, setConfirmState] = useState(null);
 
-  useEffect(() => initializeStorageVersion(), []);
-  useEffect(() => writeJSON(STORAGE_KEYS.transactions, transactions), [transactions]);
-  useEffect(() => writeJSON(STORAGE_KEYS.categories, categories), [categories]);
-  useEffect(() => writeJSON(STORAGE_KEYS.budgets, budgets), [budgets]);
-  useEffect(() => writeJSON(STORAGE_KEYS.recurring, recurring), [recurring]);
+  useEffect(() => { initializeStorageVersion(); }, []);
+  useEffect(() => { writeJSON(STORAGE_KEYS.transactions, transactions); }, [transactions]);
+  useEffect(() => { writeJSON(STORAGE_KEYS.categories, categories); }, [categories]);
+  useEffect(() => { writeJSON(STORAGE_KEYS.budgets, budgets); }, [budgets]);
+  useEffect(() => { writeJSON(STORAGE_KEYS.recurring, recurring); }, [recurring]);
   useEffect(() => {
     writeJSON(STORAGE_KEYS.settings, settings);
     try { window.localStorage.setItem(STORAGE_KEYS.theme, settings.theme); } catch {}

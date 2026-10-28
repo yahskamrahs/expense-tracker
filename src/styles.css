@@ -83,7 +83,7 @@ body.modal-open { overflow: hidden; }
 .side-note strong, .side-note span { display: block; }
 .side-note strong { font-size: 12px; }
 .side-note span { margin-top: 5px; color: var(--muted); font-size: 11px; line-height: 1.5; }
-.settings-link { margin-top: 10px; }
+.settings-link { margin-top: auto; }
 
 .main-column { min-width: 0; }
 .topbar { min-height: 108px; padding: 20px 30px; border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(16px); display: flex; align-items: center; justify-content: space-between; gap: 20px; position: sticky; top: 0; z-index: 15; }

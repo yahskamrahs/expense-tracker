@@ -7,8 +7,8 @@ export const currentMonthKey = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
 };
 
-export function formatCurrency(value, currency = 'BDT', compact = false) {
-  const meta = CURRENCY_META[currency] || CURRENCY_META.BDT;
+export function formatCurrency(value, currency = 'INR', compact = false) {
+  const meta = CURRENCY_META[currency] || CURRENCY_META.INR;
   const amount = Number.isFinite(Number(value)) ? Number(value) : 0;
   if (compact && Math.abs(amount) >= 1000) {
     return `${meta.symbol}${new Intl.NumberFormat(meta.locale, { notation: 'compact', maximumFractionDigits: 1 }).format(amount)}`;

@@ -10,6 +10,31 @@ Expense Tracker is designed to demonstrate practical frontend engineering rather
 
 The project helps a user understand where money goes, review monthly cash flow, set spending limits, and keep a personal non-sensitive record entirely in one browser. It is suitable for a portfolio, university demonstration, viva, or local personal-finance demo.
 
+## 🚀 Quick Setup & Run
+
+### 1. Prerequisites
+- **Node.js** (v18 or higher recommended) — [Download here](https://nodejs.org/)
+
+### 2. Run the Commands
+```bash
+# Step 1: Open project folder
+cd expense-tracker
+
+# Step 2: Install dependencies
+npm install
+
+# Step 3: Start development server
+npm run dev
+```
+
+### 3. Open in Browser
+Visit **`http://localhost:5173`** in your browser.
+
+> 💡 **Tip:** After opening the app, go to **Settings** ➔ click **"Load demo data"** to immediately populate sample transactions, charts, and budget insights!
+> 
+> 📖 For detailed troubleshooting and ZIP extraction instructions, see [SETUP_GUIDE.md](SETUP_GUIDE.md).
+
+
 ## Main Features
 
 - Add income and expense transactions
@@ -250,15 +275,15 @@ src/
   styles.css
 ```
 
-## Installation
+## Installation & Setup
+
+> 📖 **Need a complete beginner guide for running from a ZIP?** See [SETUP_GUIDE.md](SETUP_GUIDE.md) for step-by-step instructions with troubleshooting for Windows, macOS, and Linux.
 
 ```bash
+# Install dependencies
 npm install
-```
 
-## Run Locally
-
-```bash
+# Run locally in development mode
 npm run dev
 ```
 
